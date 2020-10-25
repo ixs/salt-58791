@@ -1,0 +1,9 @@
+git bisect start
+# good: [b95213ec903402f25c1e0aeb3990fe8452ab63ce] Add missing changelog entries
+git bisect good b95213ec903402f25c1e0aeb3990fe8452ab63ce
+# bad: [998c382f5f2c3b4cbf7d96aa6913ada6993909b3] ChangelogUpdate
+git bisect bad 998c382f5f2c3b4cbf7d96aa6913ada6993909b3
+# good: [1decb95c69af87651800d1ddae9f689df0425cf3] clean up code page
+git bisect good 1decb95c69af87651800d1ddae9f689df0425cf3
+# bad: [a8a7eec0113b16cd7c92328df935fdb3839aa80d] Improve macOS service naming support (#57646)
+git bisect bad a8a7eec0113b16cd7c92328df935fdb3839aa80d

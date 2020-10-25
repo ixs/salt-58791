@@ -1,0 +1,54 @@
+#!/bin/bash
+# run timed salt
+
+#set -euo pipefail
+
+DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
+. $DIR/test_conf.sh
+
+if true; then
+echo "Run highstate on test minion"
+{
+	date
+	time ssh $MINION "$COMMAND"
+	ret=$?
+	date
+	echo "ret: $?"
+} 2>&1 | tee $LOG
+fi
+
+ret=$(awk 'END { print $2 }' $LOG)
+SALT_TIME=$(grep -E "^Total run time" $LOG | awk '{ print $4 }')
+REAL_TIME=$(grep -E "^real[[:space:]]" $LOG | awk '{ print $2 }')
+
+echo "Check results"
+if [ "$ret" -eq 124 ]; then
+	echo "Runtime exceeded. Process killed. FAIL!"
+	exit 1
+fi
+
+MINS=${REAL_TIME%%m*}
+if [ "${MINS}" -lt 3 ]; then
+	echo "Real time ${REAL_TIME}. Less than 3min. PASS!"
+	exit 0
+else
+	echo "Real time ${REAL_TIME}. More than 3min. FAIL!"
+	exit 1
+fi
+
+
+if [ -z "$SALT_TIME" ]; then
+	echo "No time found. Salt did not run correctly."
+	exit 2 # or maybe 125
+fi
+
+SECS=${SALT_TIME%%.*}
+if [ "${SECS}" -lt 120 ]; then
+	echo "Salt time ${SECS}. Less than 120sec. PASS!"
+	exit 0
+else
+	echo "Salt time ${SECS}. More than 120sec. FAIL!"
+	exit 1
+fi
+
+

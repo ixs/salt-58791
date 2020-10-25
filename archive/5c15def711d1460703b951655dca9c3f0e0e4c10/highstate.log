@@ -1,0 +1,600 @@
++ /usr/bin/time -v timeout -k 10 590 salt-call state.highstate test=True
+local:
+  Name: /mnt/XenServer - Function: mount.mounted - Result: Clean Started: - 17:32:15.677088 Duration: 280.96 ms
+  Name: /mnt/grml - Function: mount.mounted - Result: Clean Started: - 17:32:15.958561 Duration: 69.36 ms
+  Name: /mnt/repository - Function: mount.mounted - Result: Clean Started: - 17:32:16.028511 Duration: 65.819 ms
+  Name: httpd - Function: pkg.installed - Result: Clean Started: - 17:32:19.837687 Duration: 46.404 ms
+  Name: php - Function: pkg.installed - Result: Clean Started: - 17:32:19.886267 Duration: 57.923 ms
+  Name: saltstack - Function: pkgrepo.managed - Result: Clean Started: - 17:32:19.945503 Duration: 78.262 ms
+  Name: salt-minion - Function: pkg.installed - Result: Clean Started: - 17:32:20.023961 Duration: 87.567 ms
+  Name: /etc/salt/minion.d - Function: file.recurse - Result: Clean Started: - 17:32:20.114013 Duration: 8036.389 ms
+  Name: /etc/salt/minion.d/_defaults.conf - Function: file.absent - Result: Clean Started: - 17:32:28.158322 Duration: 1.325 ms
+----------
+          ID: salt-minion
+    Function: service.running
+      Result: None
+     Comment: Service salt-minion is set to start
+     Started: 17:32:28.163229
+    Duration: 287.223 ms
+     Changes:   
+  Name: salt-call --local service.restart salt-minion --out-file /dev/null - Function: cmd.run - Result: Clean Started: - 17:32:28.467033 Duration: 0.014 ms
+----------
+          ID: remove-default-minion-conf-file
+    Function: file.absent
+        Name: /etc/salt/minion
+      Result: None
+     Comment: File /etc/salt/minion is set for removal
+     Started: 17:32:28.467147
+    Duration: 2.925 ms
+     Changes:   
+              ----------
+              removed:
+                  /etc/salt/minion
+  Name: salt_inotify_install - Function: pkg.installed - Result: Clean Started: - 17:32:28.470276 Duration: 159.253 ms
+  Name: /usr/bin/salt - Function: file.replace - Result: Clean Started: - 17:32:28.630238 Duration: 10.501 ms
+  Name: /usr/bin/salt-call - Function: file.replace - Result: Clean Started: - 17:32:28.640959 Duration: 3.155 ms
+  Name: /usr/bin/salt-cloud - Function: file.replace - Result: Clean Started: - 17:32:28.644298 Duration: 2.883 ms
+  Name: /usr/bin/salt-cp - Function: file.replace - Result: Clean Started: - 17:32:28.647352 Duration: 2.776 ms
+  Name: /usr/bin/salt-key - Function: file.replace - Result: Clean Started: - 17:32:28.650293 Duration: 2.729 ms
+  Name: /usr/bin/salt-master - Function: file.replace - Result: Clean Started: - 17:32:28.653200 Duration: 3.307 ms
+  Name: /usr/bin/salt-minion - Function: file.replace - Result: Clean Started: - 17:32:28.656670 Duration: 2.716 ms
+  Name: /usr/bin/salt-proxy - Function: file.replace - Result: Clean Started: - 17:32:28.659572 Duration: 3.216 ms
+  Name: /usr/bin/salt-run - Function: file.replace - Result: Clean Started: - 17:32:28.662961 Duration: 2.762 ms
+  Name: /usr/bin/salt-ssh - Function: file.replace - Result: Clean Started: - 17:32:28.666242 Duration: 2.772 ms
+  Name: /usr/bin/salt-unity - Function: file.replace - Result: Clean Started: - 17:32:28.669168 Duration: 2.728 ms
+  Name: salt-call --local service.restart salt-minion --out-file /dev/null - Function: cmd.run - Result: Clean Started: - 17:32:28.714005 Duration: 0.017 ms
+  Name: /etc/dehydrated/conf.d/local.sh - Function: file.managed - Result: Clean Started: - 17:32:28.714124 Duration: 116.11 ms
+  Name: /etc/dehydrated/hook.sh - Function: file.managed - Result: Clean Started: - 17:32:28.830458 Duration: 542.653 ms
+  Name: /etc/dehydrated/domains.txt - Function: file.managed - Result: Clean Started: - 17:32:29.373299 Duration: 828.84 ms
+  Name: dehydrated --cron >/var/log/dehydrated.log 2>&1; res=$?; [ $res -eq 0 ] || cat /var/log/dehydrated.log; exit $res - Function: cron.present - Result: Clean Started: - 17:32:30.219944 Duration: 148.372 ms
+  Name: /root/.ssh/id_rsa.letsencrypt - Function: file.managed - Result: Clean Started: - 17:32:30.369196 Duration: 43.988 ms
+  Name: /usr/local/sbin/dehydrated_salt_wrapper.sh - Function: file.managed - Result: Clean Started: - 17:32:30.413426 Duration: 4087.953 ms
+----------
+          ID: dehydrated_run
+    Function: cmd.run
+        Name: /usr/local/sbin/dehydrated_salt_wrapper.sh
+      Result: None
+     Comment: 
+     Started: 17:32:34.509412
+    Duration: 2.062 ms
+     Changes:   
+  Name: /usr/lib/python3.6/site-packages/XenAPI.py - Function: file.managed - Result: Clean Started: - 17:32:34.511679 Duration: 39.003 ms
+  Name: salt-master - Function: pkg.installed - Result: Clean Started: - 17:32:34.550934 Duration: 114.213 ms
+  Name: /etc/salt/master.d - Function: file.recurse - Result: Clean Started: - 17:32:34.665341 Duration: 2100.648 ms
+  Name: /etc/salt/master.d/_defaults.conf - Function: file.absent - Result: Clean Started: - 17:32:36.779576 Duration: 1.446 ms
+----------
+          ID: salt-master
+    Function: service.running
+      Result: None
+     Comment: Service salt-master is set to start
+     Started: 17:32:36.787989
+    Duration: 221.24 ms
+     Changes:   
+----------
+          ID: remove-default-master-conf-file
+    Function: file.absent
+        Name: /etc/salt/master
+      Result: None
+     Comment: File /etc/salt/master is set for removal
+     Started: 17:32:37.010208
+    Duration: 3.226 ms
+     Changes:   
+              ----------
+              removed:
+                  /etc/salt/master
+  Name: salt-api - Function: pkg.installed - Result: Clean Started: - 17:32:37.013648 Duration: 48.738 ms
+----------
+          ID: salt-api
+    Function: service.running
+      Result: None
+     Comment: Service salt-api is set to start
+     Started: 17:32:37.070221
+    Duration: 206.096 ms
+     Changes:   
+  Name: /mnt/repository/repository(/.*)? - Function: selinux.fcontext_policy_present - Result: Clean Started: - 17:32:37.282138 Duration: 1806.28 ms
+  Name: /mnt/repository/repository - Function: selinux.fcontext_policy_applied - Result: Clean Started: - 17:32:39.089326 Duration: 16325.41 ms
+  Name: /mnt/repository/samba(/.*)? - Function: selinux.fcontext_policy_present - Result: Clean Started: - 17:32:55.415605 Duration: 1535.055 ms
+  Name: /mnt/repository/samba - Function: selinux.fcontext_policy_applied - Result: Clean Started: - 17:32:56.951535 Duration: 310.969 ms
+  Name: python3-pip - Function: pkg.installed - Result: Clean Started: - 17:32:57.263416 Duration: 210.825 ms
+  Name: salt-sproxy - Function: pip.installed - Result: Clean Started: - 17:33:00.344099 Duration: 3292.923 ms
+  Name: salt-proxy@arista-rechts.mgmt.bawue.net - Function: service.running - Result: Clean Started: - 17:33:03.637900 Duration: 758.365 ms
+  Name: salt-proxy@arista-links.mgmt.bawue.net - Function: service.running - Result: Clean Started: - 17:33:04.397114 Duration: 967.043 ms
+  Name: salt-proxy@arista-mgmt.mgmt.bawue.net - Function: service.running - Result: Clean Started: - 17:33:05.365013 Duration: 981.288 ms
+  Name: salt-proxy@fire-ipmi.mgmt.bawue.net - Function: service.running - Result: Clean Started: - 17:33:06.347145 Duration: 1278.738 ms
+  Name: salt-proxy@water-ipmi.mgmt.bawue.net - Function: service.running - Result: Clean Started: - 17:33:07.626758 Duration: 1146.362 ms
+  Name: salt-proxy@earth-ipmi.mgmt.bawue.net - Function: service.running - Result: Clean Started: - 17:33:08.773972 Duration: 850.703 ms
+  Name: salt-proxy@wind-ipmi.mgmt.bawue.net - Function: service.running - Result: Clean Started: - 17:33:09.625512 Duration: 601.618 ms
+  Name: net.ipv4.conf.all.rp_filter - Function: sysctl.present - Result: Clean Started: - 17:33:10.232563 Duration: 517.774 ms
+  Name: /etc/hostname - Function: file.managed - Result: Clean Started: - 17:33:10.751171 Duration: 23.047 ms
+  Name: hostnamectl set-hostname "herbert.bawue.net" - Function: cmd.run - Result: Clean Started: - 17:33:10.774435 Duration: 4399.911 ms
+  Name: saltutil.refresh_grains - Function: module.run - Result: Clean Started: - 17:33:15.182439 Duration: 0.015 ms
+  Name: 127.0.0.1 - Function: host.only - Result: Clean Started: - 17:33:15.182564 Duration: 15.048 ms
+  Name: ::1 - Function: host.only - Result: Clean Started: - 17:33:15.197790 Duration: 1.488 ms
+  Name: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7 - Function: file.managed - Result: Clean Started: - 17:33:15.199459 Duration: 36.721 ms
+  Name: epel_release - Function: pkg.installed - Result: Clean Started: - 17:33:15.238648 Duration: 933.94 ms
+  Name: /etc/yum.repos.d/epel.repo - Function: file.replace - Result: Clean Started: - 17:33:16.188818 Duration: 33.492 ms
+  Name: /etc/yum.repos.d/epel.repo - Function: file.replace - Result: Clean Started: - 17:33:16.224612 Duration: 3.522 ms
+  Name: /etc/yum.repos.d/epel.repo - Function: file.replace - Result: Clean Started: - 17:33:16.228302 Duration: 3.114 ms
+  Name: /etc/yum.repos.d/epel-testing.repo - Function: file.replace - Result: Clean Started: - 17:33:16.231578 Duration: 25.293 ms
+  Name: base_packages_installed - Function: pkg.installed - Result: Clean Started: - 17:33:16.257055 Duration: 139.138 ms
+  Name: base_packages_absent - Function: pkg.removed - Result: Clean Started: - 17:33:16.396408 Duration: 61.581 ms
+  Name: base_packages_virt_absent - Function: pkg.removed - Result: Clean Started: - 17:33:16.458188 Duration: 63.472 ms
+  Name: resolvconf - Function: pkg.purged - Result: Clean Started: - 17:33:16.521873 Duration: 38.4 ms
+  Name: /etc/resolv.conf - Function: file.managed - Result: Clean Started: - 17:33:16.562637 Duration: 1423.089 ms
+  Name: /root/home/(.*/)?\.ssh(/.*)? - Function: selinux.fcontext_policy_present - Result: Clean Started: - 17:33:17.985971 Duration: 458.738 ms
+  Name: /root/home - Function: selinux.fcontext_policy_applied - Result: Clean Started: - 17:33:18.450507 Duration: 1229.731 ms
+  Name: root - Function: user.present - Result: Clean Started: - 17:33:19.681162 Duration: 5.796 ms
+  Name: /root/home - Function: file.directory - Result: Clean Started: - 17:33:19.687138 Duration: 24.914 ms
+  Name: rootat - Function: user.present - Result: Clean Started: - 17:33:19.712255 Duration: 3.322 ms
+  Name: /root/home/rootat/.ssh - Function: file.directory - Result: Clean Started: - 17:33:19.715781 Duration: 2.333 ms
+  Name: /root/home/rootat/.ssh/authorized_keys - Function: file.managed - Result: Clean Started: - 17:33:19.718318 Duration: 47.951 ms
+  Name: rootpr - Function: user.present - Result: Clean Started: - 17:33:19.766485 Duration: 3.104 ms
+  Name: /root/home/rootpr/.ssh - Function: file.directory - Result: Clean Started: - 17:33:19.769756 Duration: 2.299 ms
+  Name: /root/home/rootpr/.ssh/authorized_keys - Function: file.managed - Result: Clean Started: - 17:33:19.772234 Duration: 25.986 ms
+  Name: rootok - Function: user.present - Result: Clean Started: - 17:33:19.798438 Duration: 3.035 ms
+  Name: /root/home/rootok/.ssh - Function: file.directory - Result: Clean Started: - 17:33:19.801653 Duration: 2.082 ms
+  Name: /root/home/rootok/.ssh/authorized_keys - Function: file.managed - Result: Clean Started: - 17:33:19.803926 Duration: 25.714 ms
+  Name: rootun - Function: user.present - Result: Clean Started: - 17:33:19.829857 Duration: 2.995 ms
+  Name: /root/home/rootun/.ssh - Function: file.directory - Result: Clean Started: - 17:33:19.833040 Duration: 2.123 ms
+  Name: /root/home/rootun/.ssh/authorized_keys - Function: file.managed - Result: Clean Started: - 17:33:19.835335 Duration: 35.843 ms
+  Name: rootsd - Function: user.present - Result: Clean Started: - 17:33:19.871386 Duration: 3.238 ms
+  Name: rootjs - Function: user.present - Result: Clean Started: - 17:33:19.874833 Duration: 2.921 ms
+  Name: rootth - Function: user.present - Result: Clean Started: - 17:33:19.877933 Duration: 2.862 ms
+  Name: rootrg - Function: user.present - Result: Clean Started: - 17:33:19.880998 Duration: 36.121 ms
+  Name: /root/home/rootrg/.ssh - Function: file.directory - Result: Clean Started: - 17:33:19.917301 Duration: 2.225 ms
+  Name: /root/home/rootrg/.ssh/authorized_keys - Function: file.managed - Result: Clean Started: - 17:33:19.919722 Duration: 36.486 ms
+  Name: rooteh - Function: user.present - Result: Clean Started: - 17:33:19.956430 Duration: 3.129 ms
+  Name: /root/home/rooteh/.ssh - Function: file.directory - Result: Clean Started: - 17:33:19.959722 Duration: 2.098 ms
+  Name: /root/home/rooteh/.ssh/authorized_keys - Function: file.managed - Result: Clean Started: - 17:33:19.961993 Duration: 25.25 ms
+  Name: rootjh - Function: user.present - Result: Clean Started: - 17:33:19.987437 Duration: 2.973 ms
+  Name: /root/home/rootjh/.ssh - Function: file.directory - Result: Clean Started: - 17:33:19.990569 Duration: 2.124 ms
+  Name: /root/home/rootjh/.ssh/authorized_keys - Function: file.managed - Result: Clean Started: - 17:33:19.992878 Duration: 36.419 ms
+  Name: /root/.ssh - Function: file.directory - Result: Clean Started: - 17:33:20.029494 Duration: 2.162 ms
+  Name: /root/.ssh/authorized_keys - Function: file.managed - Result: Clean Started: - 17:33:20.031835 Duration: 3.209 ms
+  Name: /etc/motd - Function: file.managed - Result: Clean Started: - 17:33:20.035217 Duration: 1240.349 ms
+  Name: postfix - Function: pkg.installed - Result: Clean Started: - 17:33:21.275846 Duration: 91.142 ms
+  Name: /etc/postfix/main.cf - Function: file.managed - Result: Clean Started: - 17:33:21.450971 Duration: 3145.568 ms
+  Name: /etc/postfix/master.cf - Function: file.managed - Result: Clean Started: - 17:33:24.598887 Duration: 169.689 ms
+  Name: /etc/postfix/ssl/herbert.bawue.net.crt - Function: file.managed - Result: Clean Started: - 17:33:24.768738 Duration: 9.604 ms
+  Name: /etc/postfix/ssl/herbert.bawue.net.key - Function: file.managed - Result: Clean Started: - 17:33:24.778476 Duration: 24.208 ms
+  Name: postfix - Function: service.running - Result: Clean Started: - 17:33:24.829487 Duration: 242.952 ms
+  Name: root - Function: alias.present - Result: Clean Started: - 17:33:25.073426 Duration: 13.603 ms
+  Name: /etc/postfix - Function: file.directory - Result: Clean Started: - 17:33:25.087229 Duration: 2.816 ms
+  Name: virtual-guest - Function: tuned.profile - Result: Clean Started: - 17:33:25.090272 Duration: 1959.868 ms
+  Name: chrony - Function: pkg.installed - Result: Clean Started: - 17:33:27.051102 Duration: 195.115 ms
+  Name: /etc/chrony.conf - Function: file.managed - Result: Clean Started: - 17:33:27.248792 Duration: 8044.729 ms
+  Name: chronyd - Function: service.running - Result: Clean Started: - 17:33:35.296854 Duration: 533.424 ms
+  Name: xen-guest-utils-packages_uninstall - Function: pkg.removed - Result: Clean Started: - 17:33:35.831181 Duration: 47.06 ms
+  Name: /etc/sysctl.d/10-enable-arp-notify.conf - Function: file.absent - Result: Clean Started: - 17:33:35.878457 Duration: 1.636 ms
+  Name: logrotate - Function: pkg.installed - Result: Clean Started: - 17:33:35.880276 Duration: 88.261 ms
+  Name: /etc/logrotate.conf - Function: file.managed - Result: Clean Started: - 17:33:35.968730 Duration: 1502.452 ms
+  Name: /etc/logrotate.d - Function: file.directory - Result: Clean Started: - 17:33:37.471393 Duration: 2.29 ms
+  Name: crond - Function: service.running - Result: Clean Started: - 17:33:37.482589 Duration: 476.359 ms
+  Name: nano - Function: pkg.installed - Result: Clean Started: - 17:33:37.959918 Duration: 98.644 ms
+  Name: git - Function: pkg.installed - Result: Clean Started: - 17:33:38.058793 Duration: 97.835 ms
+  Name: https://github.com/bawuenet/nanorc.git - Function: git.latest - Result: Clean Started: - 17:33:38.156873 Duration: 19694.623 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:57.852387 Duration: 23.722 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:57.876291 Duration: 31.524 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:57.908009 Duration: 31.986 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:57.940172 Duration: 31.313 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:57.971683 Duration: 31.33 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.003180 Duration: 31.225 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.034589 Duration: 9.14 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.043924 Duration: 31.47 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.075579 Duration: 31.51 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.107269 Duration: 32.053 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.139530 Duration: 31.48 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.171199 Duration: 31.234 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.202611 Duration: 31.121 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.233929 Duration: 31.138 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.265245 Duration: 9.024 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.274433 Duration: 32.914 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.307559 Duration: 31.259 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.339004 Duration: 31.268 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.370446 Duration: 31.157 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.401791 Duration: 31.35 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.433318 Duration: 31.878 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.465382 Duration: 9.054 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.474599 Duration: 31.219 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.506004 Duration: 31.266 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.537455 Duration: 31.277 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.568958 Duration: 31.467 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.600600 Duration: 31.446 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.632225 Duration: 31.115 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.663531 Duration: 9.108 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.694919 Duration: 9.226 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.704317 Duration: 31.301 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.735813 Duration: 31.239 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.767223 Duration: 31.052 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.798454 Duration: 31.201 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.829841 Duration: 31.21 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.861244 Duration: 9.093 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.870510 Duration: 31.279 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.901954 Duration: 32.117 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.934264 Duration: 31.414 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:58.965875 Duration: 42.298 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.008367 Duration: 35.675 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.044234 Duration: 42.739 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.087170 Duration: 42.783 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.130189 Duration: 42.721 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.173099 Duration: 9.19 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.182456 Duration: 57.021 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.239655 Duration: 42.464 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.282302 Duration: 43.53 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.326041 Duration: 42.506 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.368749 Duration: 42.446 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.411370 Duration: 42.245 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.453814 Duration: 42.181 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.496182 Duration: 9.342 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.505679 Duration: 42.228 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.548094 Duration: 42.417 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.590703 Duration: 63.899 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.654804 Duration: 31.315 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.686292 Duration: 42.317 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.728822 Duration: 43.412 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.772426 Duration: 42.524 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.815163 Duration: 9.405 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.824727 Duration: 42.187 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.867080 Duration: 42.179 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.909442 Duration: 42.445 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.952076 Duration: 42.623 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:33:59.994898 Duration: 42.75 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.037849 Duration: 42.434 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.080479 Duration: 42.131 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.122809 Duration: 9.187 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.132150 Duration: 42.211 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.174546 Duration: 42.262 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.216985 Duration: 42.19 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.259367 Duration: 43.848 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.303416 Duration: 43.146 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.346759 Duration: 42.741 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.389686 Duration: 42.27 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.432153 Duration: 9.101 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.441420 Duration: 42.191 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.483799 Duration: 42.858 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.526859 Duration: 42.502 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.569566 Duration: 42.246 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.612014 Duration: 42.769 ms
+  Name: /etc/nanorc - Function: file.replace - Result: Clean Started: - 17:34:00.654965 Duration: 42.295 ms
+  Name: eternalterminal_local_packages_install - Function: pkg.installed - Result: Clean Started: - 17:34:00.697470 Duration: 972.456 ms
+  Name: et - Function: service.running - Result: Clean Started: - 17:34:01.686575 Duration: 544.193 ms
+  Name: fixeep_reboot - Function: module.wait - Result: Clean Started: - 17:34:02.231700 Duration: 3.325 ms
+  Name: fail2ban - Function: pkg.installed - Result: Clean Started: - 17:34:02.235207 Duration: 104.934 ms
+  Name: /etc/fail2ban/fail2ban.local - Function: file.managed - Result: Clean Started: - 17:34:02.340355 Duration: 100.002 ms
+  Name: /etc/fail2ban/jail.local - Function: file.managed - Result: Clean Started: - 17:34:02.440563 Duration: 62.574 ms
+  Name: /etc/fail2ban/action.d/conntrack-remove.local - Function: file.managed - Result: Clean Started: - 17:34:02.503346 Duration: 365.063 ms
+  Name: /etc/fail2ban/action.d/salt-event.local - Function: file.managed - Result: Clean Started: - 17:34:02.868599 Duration: 19.323 ms
+  Name: fail2ban - Function: pkg.installed - Result: Clean Started: - 17:34:02.893866 Duration: 43.019 ms
+  Name: fail2ban - Function: service.running - Result: Clean Started: - 17:34:02.939273 Duration: 239.819 ms
+  Name: /var/cache/salt/minion/files/base/fail2ban_salt_event.pp - Function: file.managed - Result: Clean Started: - 17:34:03.180116 Duration: 27.52 ms
+  Name: fail2ban_salt_event - Function: selinux.module - Result: Clean Started: - 17:34:03.213427 Duration: 0.014 ms
+  Name: conntrack-tools - Function: pkg.installed - Result: Clean Started: - 17:34:03.213557 Duration: 53.368 ms
+  Name: /etc/fail2ban/action.d/salt_event.py - Function: file.managed - Result: Clean Started: - 17:34:03.267106 Duration: 25.183 ms
+  Name: python -O -m compileall -f /etc/fail2ban/action.d/salt_event.py - Function: cmd.run - Result: Clean Started: - 17:34:03.296737 Duration: 0.031 ms
+  Name: sqlite3 /var/lib/fail2ban/fail2ban.sqlite3 "DELETE FROM bans WHERE DATE(timeofban, 'unixepoch') < DATE('now', '-3 months'); VACUUM;" - Function: cron.present - Result: Clean Started: - 17:34:03.296949 Duration: 84.159 ms
+  Name: fail2ban - Function: service.running - Result: Clean Started: - 17:34:03.399222 Duration: 166.619 ms
+  Name: fail2ban - Function: service.running - Result: Clean Started: - 17:34:03.572306 Duration: 643.41 ms
+  Name: gssproxy - Function: service.dead - Result: Clean Started: - 17:34:04.216654 Duration: 552.771 ms
+  Name: initscripts - Function: pkg.installed - Result: Clean Started: - 17:34:04.770281 Duration: 105.153 ms
+  Name: network - Function: service.running - Result: Clean Started: - 17:34:04.875644 Duration: 506.989 ms
+----------
+          ID: NetworkManager_svc
+    Function: service.dead
+        Name: NetworkManager
+      Result: None
+     Comment: Service NetworkManager not present; if created in this state run, it would have been stopped
+     Started: 17:34:05.383525
+    Duration: 142.341 ms
+     Changes:   
+  Name: NetworkManager_pkg - Function: pkg.removed - Result: Clean Started: - 17:34:05.532963 Duration: 44.212 ms
+  Name: systemwide_networking - Function: network.system - Result: Clean Started: - 17:34:05.577394 Duration: 33.729 ms
+  Name: lo - Function: network.managed - Result: Clean Started: - 17:34:05.611328 Duration: 188.971 ms
+  Name: eth0 - Function: network.managed - Result: Clean Started: - 17:34:05.801002 Duration: 13.897 ms
+  Name: eth0:0 - Function: network.managed - Result: Clean Started: - 17:34:05.815127 Duration: 174.906 ms
+  Name: eth1 - Function: network.managed - Result: Clean Started: - 17:34:05.990860 Duration: 10.586 ms
+  Name: eth1:0 - Function: network.managed - Result: Clean Started: - 17:34:06.001629 Duration: 142.676 ms
+  Name: eth2 - Function: network.managed - Result: Clean Started: - 17:34:06.145137 Duration: 4.572 ms
+  Name: eth2:0 - Function: network.managed - Result: Clean Started: - 17:34:06.149909 Duration: 143.812 ms
+  Name: firewalld - Function: pkg.installed - Result: Clean Started: - 17:34:06.316588 Duration: 50.5 ms
+  Name: /etc/firewalld - Function: file.directory - Result: Clean Started: - 17:34:06.369653 Duration: 3.205 ms
+  Name: /etc/firewalld/firewalld.conf - Function: file.managed - Result: Clean Started: - 17:34:06.377328 Duration: 106.84 ms
+  Name: /etc/firewalld/services - Function: file.directory - Result: Clean Started: - 17:34:06.486950 Duration: 2.376 ms
+  Name: /etc/firewalld/services/salt-master.xml - Function: file.managed - Result: Clean Started: - 17:34:06.493971 Duration: 581.345 ms
+  Name: /etc/firewalld/services/salt-api.xml - Function: file.managed - Result: Clean Started: - 17:34:07.081232 Duration: 40.506 ms
+  Name: /etc/firewalld/services/tika-server.xml - Function: file.managed - Result: Clean Started: - 17:34:07.126288 Duration: 33.644 ms
+  Name: /etc/firewalld/services/solr-server.xml - Function: file.managed - Result: Clean Started: - 17:34:07.164642 Duration: 27.0 ms
+  Name: /etc/firewalld/services/suucp.xml - Function: file.managed - Result: Clean Started: - 17:34:07.196179 Duration: 35.06 ms
+  Name: /etc/firewalld/services/uucp.xml - Function: file.managed - Result: Clean Started: - 17:34:07.235844 Duration: 47.325 ms
+  Name: /etc/firewalld/services/spamassassin.xml - Function: file.managed - Result: Clean Started: - 17:34:07.287789 Duration: 79.356 ms
+  Name: /etc/firewalld/services/lmtp.xml - Function: file.managed - Result: Clean Started: - 17:34:07.371682 Duration: 493.73 ms
+  Name: /etc/firewalld/services/sasl.xml - Function: file.managed - Result: Clean Started: - 17:34:07.869917 Duration: 30.694 ms
+  Name: /etc/firewalld/services/ident.xml - Function: file.managed - Result: Clean Started: - 17:34:07.905081 Duration: 28.745 ms
+  Name: /etc/firewalld/services/dnstls.xml - Function: file.managed - Result: Clean Started: - 17:34:07.938293 Duration: 32.657 ms
+  Name: /etc/firewalld/zones - Function: file.directory - Result: Clean Started: - 17:34:07.973533 Duration: 2.891 ms
+  Name: /etc/firewalld/zones/trusted.xml - Function: file.managed - Result: Clean Started: - 17:34:07.982388 Duration: 85.81 ms
+  Name: /etc/firewalld/zones/public.xml - Function: file.managed - Result: Clean Started: - 17:34:08.072723 Duration: 74.114 ms
+  Name: /etc/firewalld/zones/accessible.xml - Function: file.managed - Result: Clean Started: - 17:34:08.151299 Duration: 59.627 ms
+  Name: /etc/firewalld/zones/30_trustedmx.xml - Function: file.managed - Result: Clean Started: - 17:34:08.215368 Duration: 63.686 ms
+  Name: /etc/firewalld/zones/50_bawuenet.xml - Function: file.managed - Result: Clean Started: - 17:34:08.283511 Duration: 70.733 ms
+  Name: iptables - Function: service.disabled - Result: Clean Started: - 17:34:08.354507 Duration: 78.243 ms
+  Name: ip6tables - Function: service.disabled - Result: Clean Started: - 17:34:08.433652 Duration: 77.714 ms
+  Name: firewalld - Function: service.running - Result: Clean Started: - 17:34:08.561450 Duration: 496.564 ms
+  Name: firewall-cmd --reload - Function: cmd.wait - Result: Clean Started: - 17:34:09.142466 Duration: 28.995 ms
+  Name: bind - Function: pkg.installed - Result: Clean Started: - 17:34:09.171655 Duration: 160.591 ms
+  Name: /etc/named.conf - Function: file.managed - Result: Clean Started: - 17:34:09.370836 Duration: 1392.494 ms
+  Name: /etc/named.conf.local - Function: file.managed - Result: Clean Started: - 17:34:10.765946 Duration: 352.964 ms
+  Name: /etc/named/logging.conf - Function: file.managed - Result: Clean Started: - 17:34:11.121506 Duration: 95.636 ms
+  Name: /etc/named/keys.conf - Function: file.managed - Result: Clean Started: - 17:34:11.219717 Duration: 503.403 ms
+  Name: named - Function: service.running - Result: Clean Started: - 17:34:11.730384 Duration: 473.458 ms
+  Name: /etc/named.keys - Function: file.directory - Result: Clean Started: - 17:34:12.210585 Duration: 15.757 ms
+  Name: /var/named/data - Function: file.directory - Result: Clean Started: - 17:34:12.228895 Duration: 2.592 ms
+  Name: /etc/sysconfig/named - Function: file.managed - Result: Clean Started: - 17:34:12.250499 Duration: 624.773 ms
+  Name: named - Function: service.running - Result: Clean Started: - 17:34:12.879600 Duration: 458.103 ms
+  Name: /var/named - Function: file.directory - Result: Clean Started: - 17:34:13.344286 Duration: 27.017 ms
+  Name: dhcp - Function: pkg.installed - Result: Clean Started: - 17:34:13.371521 Duration: 136.97 ms
+  Name: /etc/dhcp/dhcpd.conf - Function: file.managed - Result: Clean Started: - 17:34:13.541938 Duration: 748.131 ms
+  Name: /etc/systemd/system/dhcpd.service.d/override.conf - Function: file.managed - Result: Clean Started: - 17:34:14.290235 Duration: 35.897 ms
+  Name: dhcpd - Function: service.running - Result: Clean Started: - 17:34:14.332040 Duration: 229.475 ms
+  Name: nfs-server-deps - Function: pkg.installed - Result: Clean Started: - 17:34:14.562511 Duration: 50.889 ms
+  Name: /etc/exports - Function: file.managed - Result: Clean Started: - 17:34:14.613605 Duration: 23.349 ms
+  Name: nfs-server - Function: service.running - Result: Clean Started: - 17:34:14.641928 Duration: 223.741 ms
+  Name: samba - Function: pkg.installed - Result: Clean Started: - 17:34:14.866583 Duration: 50.765 ms
+  Name: /etc/samba/smb.conf - Function: file.managed - Result: Clean Started: - 17:34:14.927147 Duration: 108.97 ms
+  Name: smb - Function: service.running - Result: Clean Started: - 17:34:15.040315 Duration: 226.724 ms
+  Name: salt-ssh - Function: pkg.installed - Result: Clean Started: - 17:34:15.268023 Duration: 74.122 ms
+----------
+          ID: ensure-roster-config
+    Function: file.managed
+        Name: /etc/salt/roster
+      Result: None
+     Comment: The file /etc/salt/roster is set to be changed
+              Note: No changes made, actual changes may
+              be different due to other states.
+     Started: 17:34:15.347820
+    Duration: 83.564 ms
+     Changes:   
+              ----------
+              diff:
+                  --- 
+                  +++ 
+                  @@ -1,9 +1,133 @@
+                  -# Sample salt-ssh config file
+                  -#web1:
+                  -#  host: 192.168.42.1 # The IP addr or DNS hostname
+                  -#  user: fred         # Remote executions will be executed as user fred
+                  -#  passwd: foobarbaz  # The password to use for login, if omitted, keys are used
+                  -#  sudo: True         # Whether to sudo to root, not enabled by default
+                  -#web2:
+                  -#  host: 192.168.42.2
+                  -
+                  +#
+                  +# This file is managed by Salt! Do not edit by hand!
+                  +#
+                  +bb1.core.bawue.net:
+                  +  host: bb1.core.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +bb2.core.bawue.net:
+                  +  host: bb2.core.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +carbon.bawue.net:
+                  +  host: carbon.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +eurus.bawue.net:
+                  +  host: eurus.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +herbert.bawue.net:
+                  +  host: herbert.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +sysiphus.bawue.net:
+                  +  host: sysiphus.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +index01.mx.bawue.net:
+                  +  host: index01.mx.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +shell.bawue.net:
+                  +  host: shell.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +wiki.admin.bawue.net:
+                  +  host: wiki.admin.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +fire.bawue.net:
+                  +  host: fire.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +water.bawue.net:
+                  +  host: water.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +earth.bawue.net:
+                  +  host: earth.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +wind.bawue.net:
+                  +  host: wind.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +virtweb02.bawue.net:
+                  +  host: virtweb02.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +virtweb03.bawue.net:
+                  +  host: virtweb03.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +dvsc.bawue.net:
+                  +  host: dvsc.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +xoa.bawue.net:
+                  +  host: xoa.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +mysql55.bawue.net:
+                  +  host: mysql55.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +mysql3.bawue.net:
+                  +  host: mysql3.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +mailin01.mx.bawue.net:
+                  +  host: mailin01.mx.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +relay01.mx.bawue.net:
+                  +  host: relay01.mx.bawue.net
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +nagios.admin.bawue.net:
+                  +  host: 193.7.176.173
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +lists.bawue.net:
+                  +  host: 193.7.176.197
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +dns02.bawue.net:
+                  +  host: 193.7.176.180
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +social.bawue.net:
+                  +  host: 193.7.176.199
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +  
+                  +meet.bawue.net:
+                  +  host: 193.7.176.179
+                  +  user: root
+                  +  priv: agent-forwarding
+                  +
+  Name: salt-cloud - Function: pkg.installed - Result: Clean Started: - 17:34:15.431591 Duration: 81.465 ms
+  Name: /etc/salt/cloud.maps.d - Function: file.recurse - Result: Clean Started: - 17:34:15.513276 Duration: 6213.27 ms
+  Name: /etc/salt/cloud.profiles.d - Function: file.recurse - Result: Clean Started: - 17:34:21.726755 Duration: 164.871 ms
+  Name: /etc/salt/cloud.profiles.d/centos.conf - Function: file.serialize - Result: Clean Started: - 17:34:21.894544 Duration: 21.634 ms
+  Name: /etc/salt/cloud.providers.d - Function: file.recurse - Result: Clean Started: - 17:34:21.916360 Duration: 92.885 ms
+  Name: /etc/salt/cloud.providers.d/xen-bawue-pool.conf - Function: file.serialize - Result: Clean Started: - 17:34:22.012186 Duration: 6.243 ms
+  Name: /etc/salt/cloud.providers.d - Function: file.directory - Result: Clean Started: - 17:34:22.022942 Duration: 3.089 ms
+  Name: /srv/formulas - Function: file.directory - Result: Clean Started: - 17:34:22.026202 Duration: 3.267 ms
+  Name: https://github.com/bawuenet/apache-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.091864 Duration: 120.182 ms
+  Name: https://github.com/bawuenet/authd-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.213072 Duration: 93.235 ms
+  Name: https://github.com/bawuenet/bind-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.307392 Duration: 91.883 ms
+  Name: https://github.com/bawuenet/cobbler-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.400369 Duration: 91.126 ms
+  Name: https://github.com/bawuenet/chrony-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.492590 Duration: 90.408 ms
+  Name: https://github.com/bawuenet/dhcpd-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.584028 Duration: 90.827 ms
+  Name: https://github.com/bawuenet/dehydrated-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.675890 Duration: 94.05 ms
+  Name: https://github.com/bawuenet/dovecot-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.771013 Duration: 91.337 ms
+  Name: https://github.com/bawuenet/epel-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.863381 Duration: 133.104 ms
+  Name: https://github.com/bawuenet/fail2ban-formula.git - Function: git.latest - Result: Clean Started: - 17:34:22.997548 Duration: 280.669 ms
+  Name: https://github.com/bawuenet/firewalld-formula.git - Function: git.latest - Result: Clean Started: - 17:34:23.279277 Duration: 289.033 ms
+  Name: https://github.com/bawuenet/hostsfile-formula.git - Function: git.latest - Result: Clean Started: - 17:34:23.569313 Duration: 291.823 ms
+  Name: https://github.com/bawuenet/mounts-formula.git - Function: git.latest - Result: Clean Started: - 17:34:23.862146 Duration: 252.367 ms
+  Name: https://github.com/bawuenet/nagios-formula.git - Function: git.latest - Result: Clean Started: - 17:34:24.115538 Duration: 291.668 ms
+  Name: https://github.com/bawuenet/nfs-formula.git - Function: git.latest - Result: Clean Started: - 17:34:24.408246 Duration: 325.706 ms
+  Name: https://github.com/bawuenet/openssh-formula.git - Function: git.latest - Result: Clean Started: - 17:34:24.734982 Duration: 378.257 ms
+  Name: https://github.com/bawuenet/postfix-formula.git - Function: git.latest - Result: Clean Started: - 17:34:25.114323 Duration: 267.096 ms
+  Name: https://github.com/bawuenet/resolver-formula.git - Function: git.latest - Result: Clean Started: - 17:34:25.382445 Duration: 268.036 ms
+  Name: https://github.com/bawuenet/salt-formula.git - Function: git.latest - Result: Clean Started: - 17:34:25.651495 Duration: 266.907 ms
+  Name: https://github.com/bawuenet/samba-formula.git - Function: git.latest - Result: Clean Started: - 17:34:25.919422 Duration: 290.798 ms
+  Name: https://github.com/bawuenet/sudoers-formula.git - Function: git.latest - Result: Clean Started: - 17:34:26.211256 Duration: 267.257 ms
+  Name: https://github.com/bawuenet/tika-formula.git - Function: git.latest - Result: Clean Started: - 17:34:26.479536 Duration: 297.01 ms
+  Name: https://github.com/bawuenet/node-formula.git - Function: git.latest - Result: Clean Started: - 17:34:26.777613 Duration: 198.367 ms
+  Name: https://github.com/bawuenet/redis-formula.git - Function: git.latest - Result: Clean Started: - 17:34:26.976986 Duration: 196.389 ms
+  Name: https://github.com/bawuenet/php-formula.git - Function: git.latest - Result: Clean Started: - 17:34:27.174418 Duration: 180.928 ms
+  Name: https://github.com/bawuenet/haproxy-formula.git - Function: git.latest - Result: Clean Started: - 17:34:27.356362 Duration: 184.825 ms
+  Name: https://github.com/bawuenet/mysql-formula.git - Function: git.latest - Result: Clean Started: - 17:34:27.542211 Duration: 174.053 ms
+  Name: https://github.com/bawuenet/logrotate-formula.git - Function: git.latest - Result: Clean Started: - 17:34:27.717240 Duration: 180.158 ms
+  Name: https://github.com/bawuenet/clamav-formula.git - Function: git.latest - Result: Clean Started: - 17:34:27.898435 Duration: 192.81 ms
+  Name: https://github.com/bawuenet/roundcube-formula.git - Function: git.latest - Result: Clean Started: - 17:34:28.092291 Duration: 194.235 ms
+  Name: https://github.com/bawuenet/memcached-formula.git - Function: git.latest - Result: Clean Started: - 17:34:28.287582 Duration: 180.923 ms
+  Name: https://github.com/bawuenet/nano-formula.git - Function: git.latest - Result: Clean Started: - 17:34:28.469571 Duration: 197.764 ms
+  Name: https://github.com/bawuenet/spamassassin-formula.git - Function: git.latest - Result: Clean Started: - 17:34:28.668367 Duration: 279.075 ms
+  Name: https://github.com/bawuenet/sav-formula.git - Function: git.latest - Result: Clean Started: - 17:34:28.948499 Duration: 268.199 ms
+  Name: https://github.com/bawuenet/stunnel-formula.git - Function: git.latest - Result: Clean Started: - 17:34:29.217750 Duration: 299.954 ms
+  Name: https://github.com/bawuenet/prosody-formula.git - Function: git.latest - Result: Clean Started: - 17:34:29.518764 Duration: 279.979 ms
+  Name: https://github.com/bawuenet/limits-formula.git - Function: git.latest - Result: Clean Started: - 17:34:29.799801 Duration: 267.876 ms
+  Name: https://github.com/bawuenet/keepalived-formula.git - Function: git.latest - Result: Clean Started: - 17:34:30.068747 Duration: 233.472 ms
+  Name: https://github.com/bawuenet/fixeep_82574_83-formula.git - Function: git.latest - Result: Clean Started: - 17:34:30.303262 Duration: 190.452 ms
+  Name: https://github.com/bawuenet/sysctl-formula.git - Function: git.latest - Result: Clean Started: - 17:34:30.494785 Duration: 204.814 ms
+  Name: https://github.com/bawuenet/openvpn-formula.git - Function: git.latest - Result: Clean Started: - 17:34:30.700649 Duration: 179.705 ms
+  Name: apache - Function: group.present - Result: Clean Started: - 17:34:30.881404 Duration: 3.564 ms
+  Name: apache - Function: user.present - Result: Clean Started: - 17:34:30.885172 Duration: 15.148 ms
+  Name: /var/log/httpd - Function: file.directory - Result: Clean Started: - 17:34:30.944754 Duration: 2.92 ms
+  Name: /etc/httpd/conf/httpd.conf - Function: file.managed - Result: Clean Started: - 17:34:30.950378 Duration: 808.798 ms
+  Name: /etc/httpd/vhosts.d - Function: file.directory - Result: Clean Started: - 17:34:31.761965 Duration: 2.204 ms
+  Name: /etc/httpd/conf.d/welcome.conf - Function: file.absent - Result: Clean Started: - 17:34:31.768153 Duration: 1.52 ms
+  Name: /etc/httpd/vhosts.d/repository.sys.bawue.net.conf - Function: file.managed - Result: Clean Started: - 17:34:31.772332 Duration: 212.478 ms
+  Name: /etc/httpd/vhosts.d/repository.sys.bawue.net-storage.conf - Function: file.managed - Result: Clean Started: - 17:34:31.987668 Duration: 752.67 ms
+  Name: /etc/httpd/vhosts.d/repository.sys.bawue.net-mgmt.conf - Function: file.managed - Result: Clean Started: - 17:34:32.743290 Duration: 1105.874 ms
+  Name: httpd - Function: service.running - Result: Clean Started: - 17:34:33.872509 Duration: 524.726 ms
+  Name: service.reload - Function: module.wait - Result: Clean Started: - 17:34:34.463588 Duration: 3.216 ms
+  Name: service.restart - Function: module.wait - Result: Clean Started: - 17:34:34.551612 Duration: 1.737 ms
+  Name: /mnt/repository/repository - Function: file.directory - Result: Clean Started: - 17:34:34.553576 Duration: 2.881 ms
+  Name: /mnt/repository/repository - Function: file.directory - Result: Clean Started: - 17:34:34.556625 Duration: 13.186 ms
+  Name: /mnt/repository/repository - Function: file.directory - Result: Clean Started: - 17:34:34.570020 Duration: 2.209 ms
+
+Summary for local
+--------------
+Succeeded: 348 (unchanged=8, changed=3)
+Failed:      0
+--------------
+Total states run:     348
+Total run time:   131.066 s
+	Command being timed: "timeout -k 10 590 salt-call state.highstate test=True"
+	User time (seconds): 24.17
+	System time (seconds): 22.73
+	Percent of CPU this job got: 16%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:48.97
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 132712
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 136
+	Minor (reclaiming a frame) page faults: 685326
+	Voluntary context switches: 7163
+	Involuntary context switches: 3612
+	Swaps: 0
+	File system inputs: 140632
+	File system outputs: 4824
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
++ ret=0
++ echo 'ret: 0'
+ret: 0
