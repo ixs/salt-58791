@@ -1,4 +1,0 @@
-# https://github.com/saltstack/salt/issues/48145
-classes:
-states:
-pillars:
