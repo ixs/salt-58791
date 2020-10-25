@@ -1,0 +1,39 @@
++ /usr/bin/time -v salt-master -l quiet
+Exception ignored in: <bound method Pillar.__del__ of <salt.pillar.Pillar object at 0x7fc6ba3ceac8>>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/salt/pillar/__init__.py", line 1298, in __del__
+    self.destroy()
+  File "/usr/lib/python3.6/site-packages/salt/pillar/__init__.py", line 1292, in destroy
+    if self._closing:
+AttributeError: 'Pillar' object has no attribute '_closing'
+Exception ignored in: <bound method Pillar.__del__ of <salt.pillar.Pillar object at 0x7fc6b3f73e10>>
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/salt/pillar/__init__.py", line 1298, in __del__
+    self.destroy()
+  File "/usr/lib/python3.6/site-packages/salt/pillar/__init__.py", line 1292, in destroy
+    if self._closing:
+AttributeError: 'Pillar' object has no attribute '_closing'
+The salt master is shutdown. Master received a SIGTERM. Exited.
+	Command being timed: "salt-master -l quiet"
+	User time (seconds): 208.00
+	System time (seconds): 69.45
+	Percent of CPU this job got: 77%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 5:58.33
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 91520
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 36
+	Minor (reclaiming a frame) page faults: 3076721
+	Voluntary context switches: 51032
+	Involuntary context switches: 22948
+	Swaps: 0
+	File system inputs: 100696
+	File system outputs: 47200
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

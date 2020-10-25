@@ -18,13 +18,13 @@
 %define fish_dir %{_datadir}/fish/vendor_functions.d
 
 Name:    salt
-Version: 3001.1_768_g5c15def%{?__rc_ver}
+Version: 3002_3_gfba062c%{?__rc_ver}
 Release: 1%{?dist}
 Summary: A parallel remote execution system
 Group:   System Environment/Daemons
 License: ASL 2.0
 URL:     http://saltstack.org/
-Source0: salt-3001.1-768-g5c15def.tar.gz
+Source0: salt-3002-3-gfba062c.tar.gz
 Source1: %{name}-proxy@.service
 Source2: %{name}-master
 Source3: %{name}-syndic
@@ -198,7 +198,7 @@ Supports Python 3.
 
 
 %prep
-%autosetup -n salt-3001.1-768-g5c15def -p1
+%autosetup -n salt-3002-3-gfba062c -p1
 
 # Patch M2Crypto
 sed -i '/distro/d' requirements/base.txt
@@ -228,7 +228,7 @@ popd
 
 %install
 rm -rf %{buildroot}
-cd $RPM_BUILD_DIR/%{name}-3001.1-768-g5c15def
+cd $RPM_BUILD_DIR/%{name}-3002-3-gfba062c
 
 %if %{with python3}
 ## rm -rf %%{buildroot}
@@ -295,8 +295,8 @@ popd
 
 %if (%{with python2} && 0%{with tests})
 %check
-## cd $RPM_BUILD_DIR/%{name}-3001.1-768-g5c15def/%{name}-%{version}
-cd $RPM_BUILD_DIR/%{name}-3001.1-768-g5c15def
+## cd $RPM_BUILD_DIR/%{name}-3002-3-gfba062c/%{name}-%{version}
+cd $RPM_BUILD_DIR/%{name}-3002-3-gfba062c
 mkdir %{_tmppath}/salt-test-cache
 PYTHONPATH=%{pythonpath} %{__python2} setup.py test --runtests-opts=-u
 %endif
